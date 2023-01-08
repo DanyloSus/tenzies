@@ -1,30 +1,42 @@
 import React from "react"
 import Die from "./components/Die"
 
-function allNewDice() {
-  let arr = []
-  for (let i = 0; i < 10; i++) {
-    arr.push(Math.floor(Math.random()*6+1))
-  }
-  console.log(arr)
-}
+/**
+ * Challenge:
+ * 
+ * Create state to hold our array of numbers. (Initialize
+ * the state by calling our `allNewDice` function so it 
+ * loads all new dice as soon as the app loads)
+ * 
+ * Map over the state numbers array to generate our array
+ * of Die elements and render those in place of our
+ * manually-written 10 Die elements.
+ */
 
-allNewDice()
 export default function App() {
-    return (
-        <main>
-            <div className="dice-container">
-                <Die value="1" />
-                <Die value="2" />
-                <Die value="3" />
-                <Die value="4" />
-                <Die value="5" />
-                <Die value="6" />
-                <Die value="1" />
-                <Die value="1" />
-                <Die value="1" />
-                <Die value="1" />
-            </div>
-        </main>
+  const [dice, setDice] = React.useState([])
+
+  function allNewDice() {
+    const newDice = []
+    for (let i = 0; i < 10; i++) {
+      newDice.push(Math.ceil(Math.random() * 6))
+    }
+    setDice(newDice)
+  }
+  
+  React.useEffect(() => allNewDice(), [])
+  
+  const diceElements = dice.map(item => {
+    return(
+      <Die value={item} />
     )
-}
+  })
+  
+   return (
+    <main>
+      <div className="dice-container">
+        {diceElements}
+      </div>
+    </main>
+  )
+  }
