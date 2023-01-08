@@ -1,3 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Karla:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 body {
   margin: 0;
+  background-color: #0B2434;
+  font-family: Karla, sans-serif;
+}
+
+main {
+  width: 320px;
+  height: 320px;
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+}
+
+.die {
+  width: 35.84px;
+  height: 35.84px;
+  font-weight: 700;
+  font-size: 20.5889px;
+  text-align: center;
+  padding: 6.4px 9.83px;
+  background-color: white;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+  margin: 10px;
+  border-radius: 3.81277px;
 }
